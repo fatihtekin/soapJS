@@ -44,7 +44,7 @@ function readTextFile(file)
 function changePaymentMethodToCC(accountNumber,amendedDate,line) {
 	var xmlhttp = new XMLHttpRequest();
     xmlhttp.open('POST', 
-    		'http://mvnodisempwas.eu.acncorp.com:1009/ws/dise3g/services/AccountPort', 
+    		'url', 
     		false);
 
     var expiryMonth = line[4];
@@ -83,7 +83,7 @@ function changePaymentMethodToCC(accountNumber,amendedDate,line) {
         }
     }
     xmlhttp.setRequestHeader('Content-Type', 'text/xml');
-	xmlhttp.setRequestHeader('Authorization', 'Basic QUNOV1MwMTA6V0VCQ09OTg==');
+	xmlhttp.setRequestHeader('Authorization', 'Basic gfgffOV1MwMTA6V0VfdfdOTg==');
 	xmlhttp.setRequestHeader('SOAPAction', '');
 	xmlhttp.send(sr);
 	return;
@@ -93,14 +93,14 @@ function changePaymentMethodToCC(accountNumber,amendedDate,line) {
 	function getAmendedDate(accountNumber) {
         	var xmlhttp = new XMLHttpRequest();
             xmlhttp.open('POST', 
-            		'http://mvnodisempwas.eu.acncorp.com:1009/ws/dise3g/services/AccountPort', 
+            		'url', 
             		false);
 
             var sr =
                 '<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:def="http://mdsuk.com/ws/dise3g/account/definition">' +
                 '<soapenv:Header/>'+
                 '<soapenv:Body>' +
-                        '<def:QueryAccount><def:Request><ExternalReference>29200161</ExternalReference>'+
+                        '<def:QueryAccount><def:Request><ExternalReference>2dsds</ExternalReference>'+
             '<AccountNumber>'+accountNumber+'</AccountNumber><Datasets><Dataset>BASIC</Dataset><Dataset>PAYMENT_DETAILS</Dataset>'
             +'</Datasets></def:Request></def:QueryAccount>' +
                     '</soapenv:Body>' +
@@ -119,7 +119,7 @@ function changePaymentMethodToCC(accountNumber,amendedDate,line) {
                 }
             }
             xmlhttp.setRequestHeader('Content-Type', 'text/xml');
-			xmlhttp.setRequestHeader('Authorization', 'Basic QUNOV1MwMTA6V0VCQ09OTg==');
+			xmlhttp.setRequestHeader('Authorization', 'Basic gfgffOV1MwMTA6V0VfdfdOTg==');
 			xmlhttp.setRequestHeader('SOAPAction', '');
 			xmlhttp.send(sr);
 			return amendedDate;
